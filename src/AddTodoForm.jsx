@@ -1,15 +1,12 @@
-import React from "react"
+import React from "react";
 function AddTodoForm() {
   return (
-    <div>
-        <form>
-                <label htmlFor = 'todoTitle'>Title</label>
-                <input id= 'todoTitle'></input>
-                <button>Add</button>
-        </form>
-    </div>
+    <form>
+      <label htmlFor="todoTitle">Title</label>
+      <input id="todoTitle" />
 
-    
-  )
+      <button type="submit">Add</button>
+    </form>
+  );
 }
-export default AddTodoForm
+export default AddTodoForm;

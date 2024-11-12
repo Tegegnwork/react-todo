@@ -1,5 +1,5 @@
 import React from 'react'
-const List = [ 
+const list = [ 
 
         { objectID: 1,
           title: "Complete assignment"
@@ -20,14 +20,14 @@ const List = [
  function TodoList(){
 
    return (
-     <div>
+     
         
       <ul>
-         {List.map(function (item){
+         {list.map(function (item){
         return <li key = {item.objectID}>{item.title}</li>
          })}
-         </ul>
-      </div>
+      </ul>
+      
       
       
 
