@@ -1,17 +1,17 @@
 import React from 'react'
-const list = [ 
+const todoList = [ 
 
-        { objectID: 1,
+        { id: 1,
           title: "Complete assignment"
        
        },
    
-         { objectID: 2,
+         { id: 2,
            title: "work out"
    
        },
    
-          { objectID: 3,
+          { id: 3,
             title: "shopping"
    
        }
@@ -23,8 +23,8 @@ const list = [
      
         
       <ul>
-         {list.map(function (item){
-        return <li key = {item.objectID}>{item.title}</li>
+         {todoList.map(function (item){
+        return <li key = {item.id}>{item.title}</li>
          })}
       </ul>
       
