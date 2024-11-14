@@ -1,36 +1,19 @@
-import React from 'react'
-const list = [ 
+import React from "react";
+const todoList = [
+  { id: 1, title: "Complete assignment" },
 
-        { objectID: 1,
-          title: "Complete assignment"
-       
-       },
-   
-         { objectID: 2,
-           title: "work out"
-   
-       },
-   
-          { objectID: 3,
-            title: "shopping"
-   
-       }
-   ]
- 
- function TodoList(){
+  { id: 2, title: "work out" },
 
-   return (
-     
-        
-      <ul>
-         {list.map(function (item){
-        return <li key = {item.objectID}>{item.title}</li>
-         })}
-      </ul>
-      
-      
-      
+  { id: 3, title: "shopping" },
+];
 
-   )
- }
- export default TodoList
+function TodoList() {
+  return (
+    <ul>
+      {todoList.map(function (item) {
+        return <li key={item.id}>{item.title}</li>;
+      })}
+    </ul>
+  );
+}
+export default TodoList;
