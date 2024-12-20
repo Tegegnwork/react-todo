@@ -1,5 +1,4 @@
    
-   // eslint-disable-next-line no-unused-vars
    import React, { useEffect, useState } from "react";
     import TodoList from "./TodoList";
     import AddTodoForm from "./AddTodoForm";
@@ -18,6 +17,10 @@ function App() {
   function addTodo  (newTodo)  { 
       setTodoList([...todoList,newTodo]);
   };
+  function removeTodo (id){
+    const filtertodoList = todoList.filter((todo) => todo.id !== id);
+    setTodoList(filtertodoList);
+  }
    
   return (
     <>
@@ -25,7 +28,7 @@ function App() {
       <AddTodoForm onAddTodo = {addTodo} />
       
       <hr />
-      <TodoList todoList = {todoList} />
+      <TodoList onRemoveTodo={removeTodo} todoList = {todoList} />
     </>
   );
 }
