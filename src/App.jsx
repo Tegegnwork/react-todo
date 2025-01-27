@@ -1,13 +1,14 @@
+
    
    // eslint-disable-next-line no-unused-vars
    import React, { useEffect, useState } from "react";
     import TodoList from "./TodoList";
     import AddTodoForm from "./AddTodoForm";
         function useSemiPersistentState (){
-        const [todoList, setTodoList] = useState(() => {
-        const savedTodoList = localStorage.getItem ('savedTodoList');
-            return  savedTodoList ? JSON.parse (savedTodoList) : [];
-           });
+        const [todoList, setTodoList] = useState
+        (JSON.parse (localStorage.getItem ('savedTodoList')) || []);
+        
+        
   useEffect(() => {
     localStorage.setItem ('savedTodoList',JSON.stringify(todoList))},[todoList]);
    return [todoList,setTodoList];
@@ -28,6 +29,7 @@ function App() {
       <TodoList todoList = {todoList} />
     </>
   );
+
 }
 
 export default App;
