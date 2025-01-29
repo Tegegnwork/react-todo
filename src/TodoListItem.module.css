@@ -1,0 +1,74 @@
+
+
+*{
+        margin: 8px;
+        padding:10px;
+        box-sizing: border-box;
+        font-size:x-large;
+        font-weight: bolder;
+}
+.ListItem {
+        color:black;
+        font-size:x-large;
+        font-weight: 600;
+       
+        }    
+   
+body {
+        
+        font-family: 'Courier New', Courier, monospace;
+        background-color: blueviolet;
+        display: flex;
+        align-items: center;
+        justify-content:space-evenly;
+        background-size: 400px;
+        
+
+}
+h1 {
+        display:flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+        font-size: xx-large;
+        color:aliceblue;
+}
+input {
+        flex:1;
+        border: none;
+        outline: none;
+        background:black;
+        padding: 12px;
+        border-radius: 50px;
+        
+}
+ input:hover{
+        background-color: chocolate;
+ }
+ button{
+        border: 3px;
+        outline: none;
+        padding: 10px, 10px;
+        background-color:darkcyan;
+        cursor: pointer;
+        border-radius: 30px;
+        justify-content: center;
+ }
+      button:hover {
+        background-color:blue;
+}
+@media  (max-width: 750px ) {
+        body {
+          background-color:chartreuse;
+        }
+      }
+        
+
+
+    
+
+        
+
+
+        
+
