@@ -1,8 +1,15 @@
+
    
    import React, { useEffect, useState } from "react";
+
     import TodoList from "./components/TodoList";
     import AddTodoForm from "./components/AddTodoForm";
   import{BrowserRouter, Routes, Route} from "react-router-dom";
+
+    import TodoList from "./TodoList";
+    import AddTodoForm from "./AddTodoForm";
+import{BrowserRouter, Routes, Route} from "react-router-dom";
+
 
   const App = () => {
     console.log(import.meta.env)
@@ -55,13 +62,28 @@
     localStorage.setItem ('savedTodoList',JSON.stringify(todoList))}
   },[todoList, isLoading]); 
     function addTodo  (newTodo)  { 
+
+        function useSemiPersistentState (){
+        const [todoList, setTodoList] = useState
+        (JSON.parse (localStorage.getItem ('savedTodoList')) || []);
+        
+        
+  useEffect(() => {
+    localStorage.setItem ('savedTodoList',JSON.stringify(todoList))},[todoList]);
+   return [todoList,setTodoList];
+}
+function App() {
+  const [todoList, setTodoList] = useSemiPersistentState();
+  
+  function addTodo  (newTodo)  { 
       setTodoList([...todoList,newTodo]);
   };
   function removeTodo (id){
     const filtertodoList = todoList.filter((todo) => todo.id !== id);
     setTodoList(filtertodoList);
-  
+
   };
+   
   return (
   <BrowserRouter>
     <Routes>
@@ -79,6 +101,8 @@
      </BrowserRouter>
 
   );
-};
-     
+
+
+}
+
 export default App;
