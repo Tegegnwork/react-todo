@@ -2,8 +2,8 @@
    import React, { useEffect, useState } from "react";
     import TodoList from "./components/TodoList";
     import AddTodoForm from "./components/AddTodoForm";
-  import{BrowserRouter, Routes, Route} from "react-router-dom";
-  import { object } from "prop-types";
+  import {BrowserRouter, Routes, Route} from "react-router-dom";
+  import PropTypes from "prop-types"; 
 
   const App = () => {
     console.log(import.meta.env)
@@ -44,14 +44,9 @@
                         return 0;
                         
                 });
-                todos.sort((objectA, objectB) => {
-                  const titleA = objectA.title.toLowerCase();
-                  const titleB = objectB.title.toLowerCase();
-                if ( titleA < titleB ) return 1 ; 
-                if ( titleA > titleB )  return -1 ;
-                      return 0;
+                
                       
-              });
+              
                   console.log(todos);
               setTodoList(todos);
               setIsLoading(false);
@@ -95,6 +90,16 @@
      </BrowserRouter>
 
   );
+};
+App.propTypes = {
+  todoList: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      title: PropTypes.string.isRequired,
+    })
+  ),
+  isLoading: PropTypes.bool,
+  error: PropTypes.string,
 };
      
 export default App;
