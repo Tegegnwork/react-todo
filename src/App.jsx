@@ -4,7 +4,8 @@
 
     import TodoList from "./components/TodoList";
     import AddTodoForm from "./components/AddTodoForm";
-  import{BrowserRouter, Routes, Route} from "react-router-dom";
+  import {BrowserRouter, Routes, Route} from "react-router-dom";
+  import PropTypes from "prop-types"; 
 
     import TodoList from "./TodoList";
     import AddTodoForm from "./AddTodoForm";
@@ -22,7 +23,7 @@ import{BrowserRouter, Routes, Route} from "react-router-dom";
        };
              
              
-             const apiUrl = `https://api.airtable.com/v0/${import.meta.env.VITE_AIRTABLE_BASE_ID}/${import.meta.env.VITE_TABLE_NAME}`;
+             const apiUrl = `https://api.airtable.com/v0/${import.meta.env.VITE_AIRTABLE_BASE_ID}/${import.meta.env.VITE_TABLE_NAME}?view=Grid%20view&sort[0][field]=title&sort[0][direction]=asc`;
              console.log(apiUrl);
              try {
               const response = await fetch( apiUrl, options);
@@ -31,19 +32,29 @@ import{BrowserRouter, Routes, Route} from "react-router-dom";
                 throw new Error(message)
               }
               const data = await response.json();
-              console.log(data);
+              console.log('data:', data);
+
               const todos = data.records.map((record) => {
                 const newTodo = {
                   id: record.id,
                 title: record.fields.title
-              
-                }
+               }
                 return newTodo
+                  });
+                    
                   
-                   
-                
+                  todos.sort((objectA, objectB) => {
+                    const titleA = objectA.title.toLowerCase();
+                    const titleB = objectB.title.toLowerCase();
+                  if ( titleA < titleB ) return -1 ; 
+                  if ( titleA > titleB )  return 1 ;
+                        return 0;
+                        
                 });
-              console.log( todos);
+                
+                      
+              
+                  console.log(todos);
               setTodoList(todos);
               setIsLoading(false);
              } catch(error){
@@ -101,8 +112,21 @@ function App() {
      </BrowserRouter>
 
   );
+};
+App.propTypes = {
+  todoList: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      title: PropTypes.string.isRequired,
+    })
+  ),
+  isLoading: PropTypes.bool,
+  error: PropTypes.string,
+};
+     
 
 
-}
+
+
 
 export default App;
