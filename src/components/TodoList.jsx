@@ -10,14 +10,15 @@ function TodoList ({todoList, onRemoveTodo}) {
       <ul>
       
        {todoList.map((todo) => ( 
+        
         <TodoListItem key={todo.id} todo= {todo} onRemoveTodo={onRemoveTodo}/>
-       
+        
         ))}
      </ul>
     </div>
 
   );
-}
+};
 TodoList.propTypes = {
    
    todoList:PropTypes.arrayOf(
