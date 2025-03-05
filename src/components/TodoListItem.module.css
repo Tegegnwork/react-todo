@@ -1,65 +1,77 @@
 
+@import url('https://fonts.googleapis.com/css2?family=Baskervville+SC&family=EB+Garamond:ital,wght@0,400..800;1,400..800&display=swap');
+
 
 *{
-        margin: 8px;
-        padding:10px;
+        
         box-sizing: border-box;
         font-size:x-large;
         font-weight: bolder;
 }
 .ListItem {
-        color:black;
+        font-family: "EB Garamond", serif;
         font-size:x-large;
         font-weight: 600;
+       border: 20px;
        
         }    
    
 body {
         
-        font-family: 'Courier New', Courier, monospace;
-        background-color: blueviolet;
-        display: flex;
+       
+        font-family: "EB Garamond", serif;
+        background-color: rgb(43, 220, 226);
         align-items: center;
         justify-content:space-evenly;
-        background-size: 400px;
+        background-size: 200px;
         
 
 }
+
+
+
 h1 {
+      
         display:flex;
         align-items: center;
         justify-content: center;
         font-weight: bold;
         font-size: xx-large;
         color:aliceblue;
+        
 }
 input {
-        flex:1;
+        
         border: none;
         outline: none;
         background:black;
-        padding: 12px;
+        padding: 14px;
         border-radius: 50px;
+        width: 340px;
+        margin-left: 40px;
         
 }
  input:hover{
         background-color: chocolate;
  }
  button{
-        border: 3px;
+        border: 10px;
         outline: none;
-        padding: 10px, 10px;
+        padding:10px  70px;
         background-color:darkcyan;
         cursor: pointer;
-        border-radius: 30px;
-        justify-content: center;
+        border-radius: 40px;
+        margin-right: 40px;
+        
  }
+ 
+
       button:hover {
         background-color:blue;
 }
 @media  (max-width: 750px ) {
         body {
-          background-color:chartreuse;
+          background-color:rgb(255, 102, 0);
         }
       }
         
