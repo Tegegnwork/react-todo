@@ -2,7 +2,6 @@ import React, { useEffect, useRef } from "react"
 import PropTypes from "prop-types";
 function InputWithLabel (props){
   const inputRef = useRef();
-  /*console.log(inputRef.current.);*/
   useEffect (() => {
     inputRef.current.focus
   });

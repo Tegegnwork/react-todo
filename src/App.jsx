@@ -29,7 +29,7 @@ import './App.css';
     }
    }
 
-const App = () => {
+const App = (tableName) => {
   const [todoList, setTodoList] = useState([]);
   const [sortAsc, setSortAsc]    = useState(true);
   const [isLoading, setIsLoading] = useState(true);
@@ -80,7 +80,7 @@ const App = () => {
     };
 
     fetchData();
-  }, []);
+  }, [tableName]);
 
   useEffect(() => {
     if (!isLoading) {
